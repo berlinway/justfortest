@@ -1,0 +1,10 @@
+[Unit]
+Description = rclone-yb
+     
+[Service]
+User = root
+ExecStart = /usr/bin/rclone mount od-yb: /app/od-yb   --vfs-cache-max-age 2h --file-perms 0777 --copy-links --no-gzip-encoding --no-check-certificate --allow-other --allow-non-empty --umask 000 
+Restart = on-abort
+     
+[Install]
+WantedBy = multi-user.target
